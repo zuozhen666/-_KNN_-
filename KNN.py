@@ -73,8 +73,11 @@ def handwritingClassTest():
         vectorUnderTest = img2vector('testDigits/%s' % fileNameStr)
         #调用classify0函数获取标签
         classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)
-        print("the classifier came back with: %d" % classifierResult)
-        print("the real answer is: %d\n" % classNumStr)
+        print("正确结果：%d 预测结果：%d" % (classNumStr, classifierResult))
         if (classifierResult != classNumStr): errorCount += 1.0
-    print("\nthe total number of errors is: %d" % errorCount)
-    print("\nthe total error rate is: %f" % (errorCount/float(mTest)))
+    print("\n预测错误数目: %d" % errorCount)
+    print("\n错误率: %f" % (errorCount/float(mTest)))
+    
+if __name__ == '__main__':
+    handwritingClassTest()
+    
